@@ -1,0 +1,119 @@
+{
+  "config_version": "1.0.0",
+  "allowed_download_hosts": [
+    "api.github.com",
+    "github.com",
+    "codeload.github.com"
+  ],
+  "acquisition": {
+    "timeout_seconds": 20,
+    "max_retries": 3,
+    "backoff_seconds": 0.5,
+    "jitter_seconds": 0.1,
+    "requests_per_host_per_second": 0.5,
+    "redirect_limit": 5,
+    "concurrent_jobs": 1,
+    "resume_partial_downloads": true,
+    "atomic_promotion": true
+  },
+  "resources": {
+    "max_total_download_bytes": 20000000,
+    "max_raw_storage_bytes": 64000000,
+    "max_staging_storage_bytes": 64000000,
+    "max_release_storage_bytes": 64000000,
+    "max_single_file_bytes": 6000000,
+    "max_archive_expansion_bytes": 32000000,
+    "max_records_per_job": 10000,
+    "max_memory_worker_bytes": 1500000000,
+    "max_processing_duration_seconds": 900,
+    "max_per_source_bytes": 12000000,
+    "free_disk_safety_reserve_bytes": 536870912,
+    "max_retries_per_job": 3,
+    "max_concurrent_jobs": 1
+  },
+  "normalization": {
+    "schema_version": "1.0.0",
+    "normalization_version": "1.0.0",
+    "unicode_normalization": "NFC",
+    "line_endings": "LF",
+    "preserve_arabic_diacritics": true,
+    "rewrite_arabic_letter_variants": false,
+    "remove_punctuation": false,
+    "strip_markup": "only_for_html_assets_or_explicit_markup_parser",
+    "collapse_internal_whitespace": false
+  },
+  "quality_profiles": {
+    "default": {
+      "minimum_language_confidence": 0.6,
+      "minimum_formatting_integrity": 0.95,
+      "minimum_information_density": 0.2,
+      "maximum_record_characters": 1000000,
+      "secret_findings": "QUARANTINE",
+      "possible_personal_identifiers": "NEEDS_HUMAN_REVIEW"
+    },
+    "task_minimum_characters": {
+      "language_modeling": 40,
+      "instruction_following": 20,
+      "mathematics": 8,
+      "programming": 12,
+      "programming_reference": 20,
+      "translation": 8,
+      "qa": 12,
+      "evaluation": 8,
+      "structured_output": 8,
+      "tool_use": 12,
+      "dictionary": 2,
+      "general": 20
+    },
+    "language_profiles": {
+      "ar": {
+        "minimum_confidence": 0.6,
+        "preserve_diacritics": true,
+        "dialect_labeling": "not_automated",
+        "transliteration_labeling": "heuristic_flag_only"
+      },
+      "en": {
+        "minimum_confidence": 0.6,
+        "preserve_code_and_formulas": true
+      },
+      "mixed": {
+        "minimum_confidence": 0.6,
+        "preserve_both_scripts": true
+      },
+      "unknown": {
+        "minimum_confidence": 0.45,
+        "action": "NEEDS_HUMAN_REVIEW",
+        "reason": "script-only classification is uncertain; never infer a language label"
+      }
+    }
+  },
+  "deduplication": {
+    "exact_hash": "sha256 of normalized text",
+    "normalized_exact": "NFC + LF; preserve case, punctuation, diacritics and whitespace",
+    "near_duplicate_method": "word-shingle Jaccard; not semantic similarity",
+    "shingle_size": 5,
+    "near_duplicate_jaccard_threshold": 0.75,
+    "minimum_labeled_fixture_pairs": 5,
+    "max_records_for_pairwise": 2000
+  },
+  "splits": {
+    "seed": 20261009,
+    "proportions": {
+      "train": 0.8,
+      "validation": 0.1,
+      "test": 0.1
+    },
+    "group_policy": "duplicate_cluster_or_record_id",
+    "source_aware_splitting": "optional",
+    "benchmark_policy": "evaluation_only_sources_never_enter_training"
+  },
+  "storage": {
+    "raw_path": "data/raw",
+    "staging_path": "data/staging",
+    "processed_path": "data/processed",
+    "quarantine_path": "data/quarantine",
+    "release_path": "data/releases",
+    "immutable_raw_by_default": true,
+    "immutable_releases": true
+  }
+}

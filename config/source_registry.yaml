@@ -1,0 +1,900 @@
+{
+  "registry_version": "1.0.0",
+  "registry_format_note": "JSON syntax is used as a safe YAML 1.2 subset; parse and validate with src/data_platform/config.py.",
+  "sources": [
+    {
+      "source_id": "gsm8k-openai",
+      "name": "Grade School Math 8K (training split only)",
+      "official_url": "https://github.com/openai/grade-school-math",
+      "landing_page": "https://github.com/openai/grade-school-math/blob/3101c7d5072418e28b9008a6636bde82a006892c/README.md",
+      "download_url": "https://api.github.com/repos/openai/grade-school-math/git/blobs/7d97154b91aef28d01c3301741c81ce90039a4b1",
+      "source_type": "published_research_dataset",
+      "domains": [
+        "mathematics",
+        "multi_step_reasoning",
+        "question_answering"
+      ],
+      "languages": [
+        "en"
+      ],
+      "format": "JSONL records transported by GitHub Git Blob JSON/base64 API",
+      "estimated_size_bytes": 4166206,
+      "license": {
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "version": "Repository LICENSE at pinned commit 3101c7d5072418e28b9008a6636bde82a006892c; copyright year 2021",
+        "url": "https://github.com/openai/grade-school-math/blob/3101c7d5072418e28b9008a6636bde82a006892c/LICENSE",
+        "license_file_blob_sha1": "9e84fcbc4d81a1f433c90caf9f1cef373c12edae",
+        "license_text_path": "docs/licenses/gsm8k-MIT.txt",
+        "training_use": "unknown",
+        "evaluation_use": "unknown",
+        "scope_note": "The pinned repository exposes an MIT LICENSE and README identifies train/test JSONL files, but no dataset-specific license scope was found. The repository notice is preserved as evidence; neither training use nor redistribution is approved until the dataset owner/legal reviewer confirms that the data are covered."
+      },
+      "commercial_use": "unknown",
+      "redistribution": "unknown",
+      "attribution": [
+        "OpenAI, Grade School Math 8K (GSM8K)",
+        "Retain the complete MIT license and copyright notice",
+        "Cite the source README/paper when redistributing or using the examples"
+      ],
+      "restrictions": [
+        "BLOCKED: do not acquire, sample, train on, or redistribute the dataset until data-level rights are confirmed in writing.",
+        "If permission is later confirmed, review the pinned train split only; test.jsonl remains evaluation-only.",
+        "The proposed deterministic 100-record sample is not acquired or approved and is not evidence of permission.",
+        "Repository is archived; confirm license scope and rights before any collection or release.",
+        "Preserve the repository MIT notice as provenance evidence, not as a determination of dataset rights."
+      ],
+      "personal_data_risk": "low",
+      "trust_level": "high",
+      "trust_justification": "Pinned commit, official OpenAI repository, pinned LICENSE/README/data blob objects checked through GitHub's API; this supports repository provenance, not mathematical correctness of each example.",
+      "known_quality_limitations": [
+        "README describes 7.5K train and 1K test problems created by human problem writers; this claim was not independently audited.",
+        "Solutions and calculation annotations are task-specific and may contain errors; no reference-solution correctness verification is implied.",
+        "Repository is archived and the API-level size is metadata, not the number of usable records.",
+        "No Arabic examples; this source contributes only English math/reasoning SFT material."
+      ],
+      "collection_method": "Pinned GitHub Git Blob API over HTTPS; stream bounded JSON response; verify upstream Git blob SHA-1 and local response SHA-256; deterministically sample 100 rows.",
+      "credentials_required": false,
+      "rate_limits": {
+        "policy": "unauthenticated GitHub API; serial requests, conservative backoff, honor Retry-After",
+        "configured_requests_per_second": 0.5
+      },
+      "retention": "Retain immutable raw API artifact and generated release only under recorded MIT notice; quarantine is not a licensing determination.",
+      "last_verified": "2026-10-09T13:00:09Z",
+      "last_successful_acquisition": null,
+      "source_revision": "3101c7d5072418e28b9008a6636bde82a006892c",
+      "known_checksums": [
+        {
+          "algorithm": "Git blob SHA-1 (source object identifier; not SHA-256)",
+          "value": "7d97154b91aef28d01c3301741c81ce90039a4b1",
+          "path": "grade_school_math/data/train.jsonl",
+          "verified_against": "pinned commit contents metadata and recomputed Git blob header+bytes after acquisition"
+        },
+        {
+          "algorithm": "Git blob SHA-1",
+          "value": "9e84fcbc4d81a1f433c90caf9f1cef373c12edae",
+          "path": "LICENSE",
+          "verified_against": "pinned commit contents metadata"
+        },
+        {
+          "algorithm": "Git blob SHA-1",
+          "value": "f5d12ef45cc7b78dbc148cbd060994decbc3159d",
+          "path": "README.md",
+          "verified_against": "pinned commit contents metadata"
+        }
+      ],
+      "connector_status": "blocked_pending_dataset_license_scope_review",
+      "eligibility": "NEEDS_REVIEW",
+      "eligibility_reason": "Fail-closed: repository-level MIT text was retrieved and hash-verified, but no separate dataset-specific license scope was found. Data acquisition and all use remain blocked pending explicit owner/legal confirmation.",
+      "evaluation_only": false,
+      "assets": [
+        {
+          "asset_id": "gsm8k-train-pilot",
+          "url": "https://api.github.com/repos/openai/grade-school-math/git/blobs/7d97154b91aef28d01c3301741c81ce90039a4b1",
+          "format": "json",
+          "content_encoding": "github_git_blob_base64",
+          "decoded_format": "jsonl",
+          "source_path": "grade_school_math/data/train.jsonl",
+          "source_git_blob_sha1": "7d97154b91aef28d01c3301741c81ce90039a4b1",
+          "text_fields": [
+            "question",
+            "answer"
+          ],
+          "sample_records": 100,
+          "sample_seed": 20261009,
+          "max_source_records": 10000,
+          "max_records": 100,
+          "max_bytes": 6000000,
+          "domain": "mathematics",
+          "task_type": "mathematics",
+          "dataset_purpose": "sft",
+          "dataset_profile": "mathematics",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "source_id": "python-cpython-docs",
+      "name": "Python CPython documentation/code repository candidate",
+      "official_url": "https://github.com/python/cpython",
+      "landing_page": "https://github.com/python/cpython/tree/main/Doc",
+      "download_url": null,
+      "source_type": "official_software_repository",
+      "domains": [
+        "english",
+        "programming",
+        "technical_explanation"
+      ],
+      "languages": [
+        "en"
+      ],
+      "format": "reStructuredText, Markdown, Python source",
+      "estimated_size_bytes": null,
+      "license": {
+        "name": "NOASSERTION / multiple historical license texts",
+        "spdx_id": "NOASSERTION",
+        "version": "repository API at audit time",
+        "url": "https://github.com/python/cpython/blob/main/Doc/license.rst",
+        "training_use": "unknown",
+        "evaluation_use": "unknown",
+        "scope_note": "GitHub API license endpoint returned NOASSERTION; the documentation describes historical Python licenses. Determine the license for the exact documentation files/revision before acquisition."
+      },
+      "commercial_use": "unknown",
+      "redistribution": "unknown",
+      "attribution": [
+        "Python Software Foundation and individual contributors; exact file-level notice unresolved"
+      ],
+      "restrictions": [
+        "Do not acquire until exact file license and applicable notice are reviewed."
+      ],
+      "personal_data_risk": "low",
+      "trust_level": "high",
+      "trust_justification": "Official python organization repository; exact documentation content rights are not resolved by repo-level API metadata.",
+      "known_quality_limitations": [
+        "Technical prose/code is domain-specific and not a broad language corpus.",
+        "Repository root is large; no repository archive acquisition is planned."
+      ],
+      "collection_method": "Potential pinned GitHub Contents API; not implemented for this source pending rights review.",
+      "credentials_required": false,
+      "rate_limits": {
+        "policy": "GitHub API limits; serial only"
+      },
+      "retention": "Not approved for ingestion; do not retain content until rights review.",
+      "last_verified": "2026-10-09T13:00:09Z",
+      "last_successful_acquisition": null,
+      "source_revision": "main branch observed; not pinned",
+      "known_checksums": [
+        {
+          "algorithm": "Git blob SHA-1",
+          "value": "41e5ce4e3b668d8d926317dbf982199af91e3592",
+          "path": "Doc/license.rst",
+          "verified_against": "GitHub Contents API"
+        },
+        {
+          "algorithm": "Git blob SHA-1",
+          "value": "20cf39097c68baa17cc566b64e76d34ebf034044",
+          "path": "LICENSE",
+          "verified_against": "GitHub Contents API"
+        }
+      ],
+      "connector_status": "not_enabled_rights_review_required",
+      "eligibility": "NEEDS_REVIEW",
+      "eligibility_reason": "Repository-level license is NOASSERTION and file-specific documentation rights were not resolved.",
+      "evaluation_only": false,
+      "assets": []
+    },
+    {
+      "source_id": "tydiqa-google",
+      "name": "TyDi QA Arabic-inclusive benchmark candidate",
+      "official_url": "https://github.com/google-research-datasets/tydiqa",
+      "landing_page": "https://github.com/google-research-datasets/tydiqa/blob/master/README.md",
+      "download_url": null,
+      "source_type": "research_benchmark",
+      "domains": [
+        "question_answering",
+        "factual_knowledge",
+        "arabic",
+        "evaluation"
+      ],
+      "languages": [
+        "ar",
+        "en",
+        "multiple"
+      ],
+      "format": "JSON/JSONL (external dataset files; not acquired)",
+      "estimated_size_bytes": null,
+      "license": {
+        "name": "Apache-2.0 on repository; dataset-specific rights unresolved",
+        "spdx_id": "Apache-2.0",
+        "version": "repository master as inspected",
+        "url": "https://github.com/google-research-datasets/tydiqa/blob/master/LICENSE",
+        "training_use": "unknown",
+        "evaluation_use": "unknown",
+        "scope_note": "The repository README identifies TyDi QA as a benchmark and links downloadable data outside the allowed host set; repository code license does not establish dataset rights."
+      },
+      "commercial_use": "unknown",
+      "redistribution": "unknown",
+      "attribution": [
+        "Google Research TyDi QA authors; per-dataset terms not verified"
+      ],
+      "restrictions": [
+        "Hold out benchmark/evaluation material from training.",
+        "Do not download until dataset-specific rights and held-out policy are confirmed."
+      ],
+      "personal_data_risk": "unassessed",
+      "trust_level": "high",
+      "trust_justification": "Official Google Research dataset repository; benchmark instructions and 11-language description inspected, but not the downloaded corpus.",
+      "known_quality_limitations": [
+        "Repository describes information-seeking QA; task coverage differs from free-form language modeling.",
+        "Actual data files and per-split content were not inspected."
+      ],
+      "collection_method": "External archive download documented in repository README; host is outside this sandbox allowlist.",
+      "credentials_required": false,
+      "rate_limits": {
+        "policy": "External host not reachable from this environment"
+      },
+      "retention": "No acquisition pending data license and evaluation policy review.",
+      "last_verified": "2026-10-09T13:00:09Z",
+      "last_successful_acquisition": null,
+      "source_revision": "master observed; not pinned",
+      "known_checksums": [
+        {
+          "algorithm": "Git blob SHA-1",
+          "value": "aaf17174010fd43f5c9a98fc959e12b611e61bb2",
+          "path": "README.md",
+          "verified_against": "GitHub Contents API"
+        },
+        {
+          "algorithm": "Git blob SHA-1",
+          "value": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+          "path": "LICENSE",
+          "verified_against": "GitHub Contents API"
+        }
+      ],
+      "connector_status": "not_enabled_dataset_host_blocked_and_rights_unresolved",
+      "eligibility": "NEEDS_REVIEW",
+      "eligibility_reason": "Research benchmark rights/split protections not established from the repository code license.",
+      "evaluation_only": true,
+      "assets": []
+    },
+    {
+      "source_id": "mlqa-facebook",
+      "name": "MLQA Arabic-English cross-lingual QA benchmark",
+      "official_url": "https://github.com/facebookresearch/MLQA",
+      "landing_page": "https://github.com/facebookresearch/MLQA",
+      "download_url": null,
+      "source_type": "research_benchmark",
+      "domains": [
+        "question_answering",
+        "cross_lingual",
+        "evaluation"
+      ],
+      "languages": [
+        "ar",
+        "en",
+        "multiple"
+      ],
+      "format": "JSON (repository dataset terms require separate verification)",
+      "estimated_size_bytes": null,
+      "license": {
+        "name": "Creative Commons Attribution-NonCommercial 4.0 International",
+        "spdx_id": "CC-BY-NC-4.0",
+        "version": "repository LICENSE inspected at master",
+        "url": "https://github.com/facebookresearch/MLQA/blob/main/LICENSE",
+        "training_use": "restricted",
+        "scope_note": "The checked repository LICENSE begins with Attribution-NonCommercial 4.0. Commercial training is not approved; data-specific scope and benchmark policy also require review.",
+        "evaluation_use": "unknown"
+      },
+      "commercial_use": "restricted",
+      "redistribution": "restricted",
+      "attribution": [
+        "MLQA authors; CC BY-NC 4.0 requires attribution and noncommercial use"
+      ],
+      "restrictions": [
+        "REJECTED for commercial training.",
+        "Do not ingest into commercial base-model or expert training.",
+        "Evaluation-only research use requires separate owner and source review."
+      ],
+      "personal_data_risk": "unassessed",
+      "trust_level": "high",
+      "trust_justification": "Official Meta Research repository; license file inspected. Source data was not acquired or independently sampled.",
+      "known_quality_limitations": [
+        "Benchmark data may contaminate evaluation if mixed into training.",
+        "Noncommercial condition conflicts with expected commercial-use flexibility."
+      ],
+      "collection_method": "Repository/API candidate only; disabled by policy.",
+      "credentials_required": false,
+      "rate_limits": {
+        "policy": "Not eligible for acquisition"
+      },
+      "retention": "Do not acquire; no source material stored.",
+      "last_verified": "2026-10-09T13:00:09Z",
+      "last_successful_acquisition": null,
+      "source_revision": "main observed; not pinned",
+      "known_checksums": [
+        {
+          "algorithm": "Git blob SHA-1",
+          "value": "108b5f002fc31efe11d881de2cd05329ebe8cc37",
+          "path": "LICENSE",
+          "verified_against": "GitHub Contents API"
+        }
+      ],
+      "connector_status": "not_enabled_noncommercial_restriction_and_benchmark_holdout",
+      "eligibility": "REJECTED",
+      "eligibility_reason": "Repository license states CC BY-NC 4.0; commercial training is incompatible with the stated use case.",
+      "evaluation_only": true,
+      "assets": []
+    },
+    {
+      "source_id": "flores200-meta",
+      "name": "FLORES-200 translation benchmark metadata candidate",
+      "official_url": "https://github.com/facebookresearch/flores",
+      "landing_page": "https://github.com/facebookresearch/flores/blob/main/README.md",
+      "download_url": null,
+      "source_type": "translation_benchmark",
+      "domains": [
+        "translation",
+        "cross_lingual",
+        "evaluation"
+      ],
+      "languages": [
+        "ar",
+        "en",
+        "multiple"
+      ],
+      "format": "parallel text (not acquired)",
+      "estimated_size_bytes": null,
+      "license": {
+        "name": "CC-BY-SA 4.0 for FLORES-200 (per repository README)",
+        "spdx_id": "CC-BY-SA-4.0",
+        "version": "README on main inspected",
+        "url": "https://github.com/facebookresearch/flores/blob/main/README.md#licenses",
+        "training_use": "permitted_with_attribution",
+        "scope_note": "README identifies FLORES-200 as CC-BY-SA 4.0; this is a translation benchmark. Treat as evaluation-only unless a documented owner policy permits otherwise.",
+        "evaluation_use": "permitted_with_attribution"
+      },
+      "commercial_use": "permitted_with_attribution",
+      "redistribution": "permitted_with_attribution",
+      "attribution": [
+        "FLORES-200 source authors; CC-BY-SA 4.0 share-alike and attribution terms"
+      ],
+      "restrictions": [
+        "Do not use for model training; keep as held-out evaluation material.",
+        "Verify exact licensed artifact and split before any acquisition."
+      ],
+      "personal_data_risk": "low",
+      "trust_level": "high",
+      "trust_justification": "Official Meta Research benchmark repository and license statement inspected; content not acquired.",
+      "known_quality_limitations": [
+        "Benchmark material is not a general-purpose language corpus.",
+        "No alignment or translation quality was measured locally."
+      ],
+      "collection_method": "Potential official benchmark repository; not enabled for this pilot.",
+      "credentials_required": false,
+      "rate_limits": {
+        "policy": "No acquisition planned"
+      },
+      "retention": "No benchmark data is retained until evaluation split and legal policy are established.",
+      "last_verified": "2026-10-09T13:00:09Z",
+      "last_successful_acquisition": null,
+      "source_revision": "main observed; not pinned",
+      "known_checksums": [
+        {
+          "algorithm": "Git blob SHA-1",
+          "value": "2ee2e4b619c1404feaab88f99a8839cb5d54d7e4",
+          "path": "README.md",
+          "verified_against": "GitHub Contents API"
+        }
+      ],
+      "connector_status": "not_enabled_benchmark_protected",
+      "eligibility": "NEEDS_REVIEW",
+      "eligibility_reason": "Translation benchmark is held out by project policy; exact data artifact and license were not verified beyond README metadata.",
+      "evaluation_only": true,
+      "assets": []
+    },
+    {
+      "source_id": "natural-instructions-allenai",
+      "name": "Natural Instructions multi-task instruction corpus candidate",
+      "official_url": "https://github.com/allenai/natural-instructions",
+      "landing_page": "https://github.com/allenai/natural-instructions",
+      "download_url": null,
+      "source_type": "multi_task_instruction_dataset",
+      "domains": [
+        "instruction_following",
+        "reasoning",
+        "multiple"
+      ],
+      "languages": [
+        "en",
+        "multiple"
+      ],
+      "format": "JSON task/example files (not acquired)",
+      "estimated_size_bytes": null,
+      "license": {
+        "name": "Apache License 2.0 for repository; task-level input rights unresolved",
+        "spdx_id": "Apache-2.0",
+        "version": "repository license metadata on master",
+        "url": "https://github.com/allenai/natural-instructions/blob/master/LICENSE",
+        "training_use": "unknown",
+        "scope_note": "Aggregate repository license does not resolve provenance/rights of every contributed task and embedded example.",
+        "evaluation_use": "unknown"
+      },
+      "commercial_use": "unknown",
+      "redistribution": "unknown",
+      "attribution": [
+        "AI2 Natural Instructions contributors; preserve per-task attribution once verified"
+      ],
+      "restrictions": [
+        "Do not acquire until task-level source and license mapping is reviewed.",
+        "Keep any benchmark/evaluation tasks out of training."
+      ],
+      "personal_data_risk": "unassessed",
+      "trust_level": "high",
+      "trust_justification": "Official AI2 repository; task-level data lineage not reviewed.",
+      "known_quality_limitations": [
+        "Repository reports over 1,500 contributed tasks; quality and rights vary by task.",
+        "Substantial source overlap/benchmark contamination risk."
+      ],
+      "collection_method": "Repository candidate only; not acquired due size and per-task review requirements.",
+      "credentials_required": false,
+      "rate_limits": {
+        "policy": "Not approved for download"
+      },
+      "retention": "No material retained.",
+      "last_verified": "2026-10-09T13:00:09Z",
+      "last_successful_acquisition": null,
+      "source_revision": "master observed; not pinned",
+      "known_checksums": [
+        {
+          "algorithm": "Git blob SHA-1",
+          "value": "29f81d812f3e768fa89638d1f72920dbfd1413a8",
+          "path": "LICENSE",
+          "verified_against": "GitHub Contents API"
+        }
+      ],
+      "connector_status": "not_enabled_per_task_licensing_required",
+      "eligibility": "NEEDS_REVIEW",
+      "eligibility_reason": "Component-level rights, provenance, and benchmark overlap are not resolved.",
+      "evaluation_only": false,
+      "assets": []
+    },
+    {
+      "source_id": "masader-arabic-catalogue",
+      "name": "Masader Arabic NLP dataset catalogue (metadata discovery only)",
+      "official_url": "https://github.com/ARBML/masader",
+      "landing_page": "https://arbml.github.io/masader/",
+      "download_url": null,
+      "source_type": "dataset_catalogue",
+      "domains": [
+        "arabic_source_discovery",
+        "metadata"
+      ],
+      "languages": [
+        "ar",
+        "en"
+      ],
+      "format": "repository metadata/catalogue; not a training corpus",
+      "estimated_size_bytes": null,
+      "license": {
+        "name": "GPL-3.0 for catalogue repository",
+        "spdx_id": "GPL-3.0",
+        "version": "repository license metadata on main",
+        "url": "https://github.com/ARBML/masader/blob/main/LICENSE",
+        "training_use": "not_applicable",
+        "scope_note": "Catalogue lists source license metadata; it does not grant rights to the listed third-party datasets.",
+        "evaluation_use": "unknown"
+      },
+      "commercial_use": "unknown",
+      "redistribution": "unknown",
+      "attribution": [
+        "Masader maintainers; underlying dataset licenses must be assessed independently"
+      ],
+      "restrictions": [
+        "Use for discovery only, not as training text.",
+        "Verify each linked dataset and current terms directly."
+      ],
+      "personal_data_risk": "low",
+      "trust_level": "medium",
+      "trust_justification": "ARBML catalogue repository README describes source metadata including dialect, license, provider, tasks and volume; catalogue entries are not source-owner confirmations.",
+      "known_quality_limitations": [
+        "Catalogue metadata can be stale or incomplete.",
+        "A catalogue license does not transfer rights in source datasets."
+      ],
+      "collection_method": "Metadata-only GitHub repository inspection; no catalogue or corpus downloaded.",
+      "credentials_required": false,
+      "rate_limits": {
+        "policy": "GitHub API serial requests"
+      },
+      "retention": "Do not copy catalogue records into a training corpus without its license and attribution review.",
+      "last_verified": "2026-10-09T13:00:09Z",
+      "last_successful_acquisition": null,
+      "source_revision": "main observed; not pinned",
+      "known_checksums": [
+        {
+          "algorithm": "Git blob SHA-1",
+          "value": "4f4410cbfc419f5e9c19fa33b9cfe714ed0d4ff6",
+          "path": "README.md",
+          "verified_against": "GitHub Contents API"
+        }
+      ],
+      "connector_status": "metadata_inspected_discovery_only",
+      "eligibility": "NEEDS_REVIEW",
+      "eligibility_reason": "Catalog is useful for discovering Arabic sources, but not itself an approved training corpus.",
+      "evaluation_only": false,
+      "assets": []
+    },
+    {
+      "source_id": "vocalized-arabic-parallel-candidate",
+      "name": "Vocalized Arabic-English parallel dataset candidate (upstream rights unresolved)",
+      "official_url": "https://github.com/emansafwatm/Vocalized-Arabic-Parallel-Dataset",
+      "landing_page": "https://github.com/emansafwatm/Vocalized-Arabic-Parallel-Dataset/blob/main/README.md",
+      "download_url": null,
+      "source_type": "community_parallel_corpus_pipeline",
+      "domains": [
+        "translation",
+        "cross_lingual",
+        "arabic_diacritics"
+      ],
+      "languages": [
+        "ar",
+        "en"
+      ],
+      "format": "parallel sentence pairs with generated vocalized variants (not acquired)",
+      "estimated_size_bytes": null,
+      "license": {
+        "name": "CC0 1.0 on repository; upstream data terms unresolved",
+        "spdx_id": "CC0-1.0",
+        "version": "repository LICENSE on main",
+        "url": "https://github.com/emansafwatm/Vocalized-Arabic-Parallel-Dataset/blob/main/LICENSE",
+        "training_use": "unknown",
+        "scope_note": "README identifies the input as ymoslem/UN-Arabic-English-Filtered derived from MultiUN/UN Parallel Corpus and vocalization by Mishkal; CC0 on this repository does not by itself verify upstream rights.",
+        "evaluation_use": "unknown"
+      },
+      "commercial_use": "unknown",
+      "redistribution": "unknown",
+      "attribution": [
+        "Repository owner and upstream UN corpus providers; attribution/terms unresolved"
+      ],
+      "restrictions": [
+        "Do not ingest until the exact upstream dataset revision and terms are verified.",
+        "Generated Arabic diacritics must be labeled as generated, not source-verified translation.",
+        "No silent MSA/dialect rewriting."
+      ],
+      "personal_data_risk": "unassessed",
+      "trust_level": "medium",
+      "trust_justification": "Repository README describes a reproducible pipeline and 584,284 aligned pairs; user repository and upstream Hugging Face dataset were not independently audited.",
+      "known_quality_limitations": [
+        "README describes embeddings filtering and Mishkal-generated vocalization; no pair-level alignment/diacritic accuracy was measured.",
+        "Upstream URL is on a host outside the sandbox network allowlist.",
+        "Dataset size is a README claim, not an observed count."
+      ],
+      "collection_method": "Potential GitHub repository; raw corpus depends on a Hugging Face source inaccessible in this environment.",
+      "credentials_required": false,
+      "rate_limits": {
+        "policy": "No acquisition until rights/source revision review"
+      },
+      "retention": "No corpus data retained.",
+      "last_verified": "2026-10-09T13:00:09Z",
+      "last_successful_acquisition": null,
+      "source_revision": "main observed; not pinned",
+      "known_checksums": [
+        {
+          "algorithm": "Git blob SHA-1",
+          "value": "0e259d42c996742e9e3cba14c677129b2c1b6311",
+          "path": "LICENSE",
+          "verified_against": "GitHub Contents API"
+        },
+        {
+          "algorithm": "Git blob SHA-1",
+          "value": "db647fabd47b7a23cb058624c3e2ffac8e4ffc7d",
+          "path": "README.md",
+          "verified_against": "GitHub Contents API"
+        }
+      ],
+      "connector_status": "not_enabled_upstream_rights_unverified",
+      "eligibility": "NEEDS_REVIEW",
+      "eligibility_reason": "The repository's CC0 license does not verify rights in its upstream parallel corpus or generated outputs.",
+      "evaluation_only": false,
+      "assets": []
+    },
+    {
+      "source_id": "codexglue-microsoft",
+      "name": "CodeXGLUE code understanding benchmark collection candidate",
+      "official_url": "https://github.com/microsoft/CodeXGLUE",
+      "landing_page": "https://github.com/microsoft/CodeXGLUE",
+      "download_url": null,
+      "source_type": "code_benchmark_collection",
+      "domains": [
+        "programming",
+        "debugging",
+        "code_explanation",
+        "evaluation"
+      ],
+      "languages": [
+        "en",
+        "multiple_programming_languages"
+      ],
+      "format": "multiple benchmark formats; not acquired",
+      "estimated_size_bytes": null,
+      "license": {
+        "name": "MIT on repository; 14 constituent datasets have per-source terms",
+        "spdx_id": "MIT",
+        "version": "repository metadata on main",
+        "url": "https://github.com/microsoft/CodeXGLUE",
+        "training_use": "unknown",
+        "scope_note": "README describes a benchmark suite combining datasets from many providers; repository license does not establish rights for every sub-dataset.",
+        "evaluation_use": "unknown"
+      },
+      "commercial_use": "unknown",
+      "redistribution": "unknown",
+      "attribution": [
+        "Microsoft CodeXGLUE authors and each underlying dataset/provider"
+      ],
+      "restrictions": [
+        "Do not use benchmark/evaluation data for training.",
+        "Review each constituent dataset license and source lineage before use."
+      ],
+      "personal_data_risk": "unassessed",
+      "trust_level": "high",
+      "trust_justification": "Official Microsoft Research repository; README describes benchmark tasks, constituent datasets and providers.",
+      "known_quality_limitations": [
+        "Mixed code and language tasks; benchmark contamination risk.",
+        "Underlying provider licenses and access paths vary."
+      ],
+      "collection_method": "Candidate discovery only; no archive or benchmark data downloaded.",
+      "credentials_required": false,
+      "rate_limits": {
+        "policy": "GitHub API serial requests"
+      },
+      "retention": "No benchmark content retained.",
+      "last_verified": "2026-10-09T13:00:09Z",
+      "last_successful_acquisition": null,
+      "source_revision": "main observed; not pinned",
+      "known_checksums": [
+        {
+          "algorithm": "GitHub repository metadata",
+          "value": "MIT",
+          "path": "repository license field",
+          "verified_against": "GitHub repository API"
+        }
+      ],
+      "connector_status": "not_enabled_component_rights_and_benchmark_review_required",
+      "eligibility": "NEEDS_REVIEW",
+      "eligibility_reason": "No constituent dataset is approved; benchmark split protections and provider terms must be reviewed individually.",
+      "evaluation_only": true,
+      "assets": []
+    },
+    {
+      "source_id": "arabic-wikipedia-candidate",
+      "name": "Arabic Wikipedia dump candidate",
+      "official_url": "https://dumps.wikimedia.org/",
+      "landing_page": "https://dumps.wikimedia.org/",
+      "download_url": null,
+      "source_type": "encyclopedia_dump",
+      "domains": [
+        "arabic",
+        "knowledge",
+        "summarization",
+        "document_understanding"
+      ],
+      "languages": [
+        "ar"
+      ],
+      "format": "compressed XML dump (not accessed)",
+      "estimated_size_bytes": null,
+      "license": {
+        "name": "Unknown in this environment",
+        "spdx_id": "NOASSERTION",
+        "version": "not verified",
+        "url": "https://meta.wikimedia.org/wiki/Terms_of_Use",
+        "training_use": "unknown",
+        "scope_note": "No current dump terms, exact revision, or content license notice was accessed in this sandbox.",
+        "evaluation_use": "unknown"
+      },
+      "commercial_use": "unknown",
+      "redistribution": "unknown",
+      "attribution": [
+        "Unknown pending direct terms review"
+      ],
+      "restrictions": [
+        "Do not acquire; network host is outside this sandbox's outbound allowlist.",
+        "Verify current terms, share-alike obligations, privacy and content-level rights before use."
+      ],
+      "personal_data_risk": "unassessed",
+      "trust_level": "unverified",
+      "trust_justification": "Candidate only; no access check performed because the official host is outside the environment's allowlist.",
+      "known_quality_limitations": [
+        "User-generated encyclopedia quality varies by article and revision.",
+        "Potential personal data, vandalism, templates and duplicate content."
+      ],
+      "collection_method": "Not accessed.",
+      "credentials_required": false,
+      "rate_limits": {
+        "policy": "Not checked; do not attempt from this environment"
+      },
+      "retention": "No retention permitted until rights and safety review.",
+      "last_verified": "unverified",
+      "last_successful_acquisition": null,
+      "source_revision": "unverified",
+      "known_checksums": [],
+      "connector_status": "blocked_by_network_policy_and_rights_review",
+      "eligibility": "NEEDS_REVIEW",
+      "eligibility_reason": "No current source, license, or access terms were accessed.",
+      "evaluation_only": false,
+      "assets": []
+    },
+    {
+      "source_id": "tatoeba-parallel-candidate",
+      "name": "Tatoeba Arabic-English sentence pair candidate",
+      "official_url": "https://tatoeba.org/",
+      "landing_page": "https://tatoeba.org/",
+      "download_url": null,
+      "source_type": "community_parallel_corpus",
+      "domains": [
+        "translation",
+        "cross_lingual"
+      ],
+      "languages": [
+        "ar",
+        "en"
+      ],
+      "format": "tabular sentence pairs (not accessed)",
+      "estimated_size_bytes": null,
+      "license": {
+        "name": "Unknown in this environment; contribution-level terms may vary",
+        "spdx_id": "NOASSERTION",
+        "version": "not verified",
+        "url": "https://tatoeba.org/eng/downloads",
+        "training_use": "unknown",
+        "scope_note": "Source host and contribution-level licensing were not checked; no bulk download attempted.",
+        "evaluation_use": "unknown"
+      },
+      "commercial_use": "unknown",
+      "redistribution": "unknown",
+      "attribution": [
+        "Sentence/contributor-level requirements unknown"
+      ],
+      "restrictions": [
+        "Do not acquire until current bulk terms and per-record attribution are verified."
+      ],
+      "personal_data_risk": "unassessed",
+      "trust_level": "unverified",
+      "trust_justification": "Candidate only; official host not accessed due outbound-host restrictions.",
+      "known_quality_limitations": [
+        "Community translations require alignment, contributor attribution and quality checks.",
+        "Short sentence pairs require task-specific evaluation."
+      ],
+      "collection_method": "Not accessed.",
+      "credentials_required": false,
+      "rate_limits": {
+        "policy": "Not checked"
+      },
+      "retention": "No data retained.",
+      "last_verified": "unverified",
+      "last_successful_acquisition": null,
+      "source_revision": "unverified",
+      "known_checksums": [],
+      "connector_status": "blocked_by_network_policy_and_rights_review",
+      "eligibility": "NEEDS_REVIEW",
+      "eligibility_reason": "Current usage terms and line-level attribution were not verified.",
+      "evaluation_only": false,
+      "assets": []
+    },
+    {
+      "source_id": "oscar-web-corpus-candidate",
+      "name": "OSCAR multilingual web crawl candidate",
+      "official_url": "https://oscar-project.org/",
+      "landing_page": "https://oscar-project.org/",
+      "download_url": null,
+      "source_type": "web_crawl_corpus",
+      "domains": [
+        "arabic",
+        "english",
+        "general_web_text"
+      ],
+      "languages": [
+        "ar",
+        "en",
+        "multiple"
+      ],
+      "format": "unknown/not accessed",
+      "estimated_size_bytes": null,
+      "license": {
+        "name": "Unknown in this environment",
+        "spdx_id": "NOASSERTION",
+        "version": "not verified",
+        "url": "https://oscar-project.org/",
+        "training_use": "unknown",
+        "scope_note": "No dataset version card or rights metadata was accessed.",
+        "evaluation_use": "unknown"
+      },
+      "commercial_use": "unknown",
+      "redistribution": "unknown",
+      "attribution": [
+        "Unknown pending source and dataset-card review"
+      ],
+      "restrictions": [
+        "Do not acquire until data-card rights, opt-out, personal-data and redistribution policies are reviewed."
+      ],
+      "personal_data_risk": "unassessed",
+      "trust_level": "unverified",
+      "trust_justification": "Candidate only; no network or dataset-card verification was possible under the host allowlist.",
+      "known_quality_limitations": [
+        "Web crawl can contain boilerplate, duplicates, spam, personal information and source-specific restrictions."
+      ],
+      "collection_method": "Not accessed.",
+      "credentials_required": false,
+      "rate_limits": {
+        "policy": "Not checked"
+      },
+      "retention": "No retention permitted until legal/privacy review.",
+      "last_verified": "unverified",
+      "last_successful_acquisition": null,
+      "source_revision": "unverified",
+      "known_checksums": [],
+      "connector_status": "blocked_by_network_policy_and_rights_review",
+      "eligibility": "NEEDS_REVIEW",
+      "eligibility_reason": "No dataset version, license, or privacy documentation was accessible.",
+      "evaluation_only": false,
+      "assets": []
+    },
+    {
+      "source_id": "madar-dialect-candidate",
+      "name": "MADAR Arabic dialect corpus candidate",
+      "official_url": "https://catalog.ldc.upenn.edu/LDC2019T30",
+      "landing_page": "https://catalog.ldc.upenn.edu/LDC2019T30",
+      "download_url": null,
+      "source_type": "licensed_arabic_dialect_corpus",
+      "domains": [
+        "arabic_dialects",
+        "translation",
+        "language_understanding"
+      ],
+      "languages": [
+        "ar",
+        "en"
+      ],
+      "format": "unknown/not accessed",
+      "estimated_size_bytes": null,
+      "license": {
+        "name": "Unknown; possible institutional licensing",
+        "spdx_id": "NOASSERTION",
+        "version": "not verified",
+        "url": "https://catalog.ldc.upenn.edu/LDC2019T30",
+        "training_use": "unknown",
+        "scope_note": "Dataset terms, price/access and commercial-use permission were not checked.",
+        "evaluation_use": "unknown"
+      },
+      "commercial_use": "unknown",
+      "redistribution": "unknown",
+      "attribution": [
+        "Unknown pending catalog and license review"
+      ],
+      "restrictions": [
+        "Do not acquire or assume a free license; verify catalog, price, commercial rights and retention."
+      ],
+      "personal_data_risk": "unassessed",
+      "trust_level": "unverified",
+      "trust_justification": "Candidate locator only; LDC host was not accessed under sandbox network restrictions.",
+      "known_quality_limitations": [
+        "Dialect labels and coverage must be checked against the exact corpus release.",
+        "No dialect classification or alignment was measured."
+      ],
+      "collection_method": "Not accessed.",
+      "credentials_required": true,
+      "rate_limits": {
+        "policy": "Unknown; likely institutional account; no access attempted"
+      },
+      "retention": "Unknown; obtain written terms before access.",
+      "last_verified": "unverified",
+      "last_successful_acquisition": null,
+      "source_revision": "unverified",
+      "known_checksums": [],
+      "connector_status": "blocked_by_network_policy_and_licensing_review",
+      "eligibility": "NEEDS_REVIEW",
+      "eligibility_reason": "Potentially licensed resource; no permission or access terms verified.",
+      "evaluation_only": false,
+      "assets": []
+    }
+  ]
+}

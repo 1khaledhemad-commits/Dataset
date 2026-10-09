@@ -1,0 +1,3 @@
+{"case_id":"fake-token-assignment","text":"api_key=DEMO_ONLY_NOT_A_REAL_SECRET_1234567890"}
+{"case_id":"private-key-marker","text":"-----BEGIN PRIVATE KEY-----\nDEMO TEST DATA ONLY\n-----END PRIVATE KEY-----"}
+{"case_id":"possible-email","text":"Contact example.person@example.invalid for a test review."}
