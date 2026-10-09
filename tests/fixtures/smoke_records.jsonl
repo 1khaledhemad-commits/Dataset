@@ -1,0 +1,10 @@
+{"id":"en-001","text":"Careful data curation preserves the original meaning of each example while recording source, revision, and license provenance."}
+{"id":"en-002","text":"Careful data curation preserves the original meaning of each example while recording source, revision, and license provenance."}
+{"id":"en-near-001","text":"A bounded data pipeline records where an example came from, checks its structure, normalizes text, and preserves its source revision, license, and useful provenance for later audit."}
+{"id":"en-near-002","text":"A bounded data pipeline records where an example came from, checks its structure, normalizes text, and preserves its source revision, license, and useful provenance for later audit. This makes reviews reproducible."}
+{"id":"ar-001","text":"تساعد مراجعة البيانات العربية على حفظ المعنى والسياق، مع تسجيل المصدر والترخيص وإشارات الجودة قبل إدراج أي مثال في مجموعة التدريب."}
+{"id":"mixed-001","text":"يجب أن يحفظ خط المعالجة provenance لكل سجل، بينما يراجع الفريق the source license قبل نشر أي بيانات أو استخدامها في التدريب."}
+{"id":"code-001","text":"def stable_identifier(source_id: str, text: str) -> str:\n    return sha256((source_id + text).encode('utf-8')).hexdigest()\n\nThe identifier is stable when the source and normalized content stay the same."}
+{"id":"short-001","text":"Hello!"}
+{"id":"empty-001","text":"   "}
+{"id":"boilerplate-001","text":"<div>Accept all cookies</div> This page contains navigation menu and repeated page text."}
